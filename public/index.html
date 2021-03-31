@@ -63,20 +63,19 @@
 			}
 
 			function Rot13() {
-				var alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+				var alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
 				var plainText = document.getElementById("plain").value;
 
-				var lower = plainText.toLowerCase();
 				var rotated = "";
 
-				for (var j = 0; j < lower.length; j++) {
+				for (var j = 0; j < plainText.length; j++) {
 					for (var i = 0; i < alphabet.length; i++) {
-						if (lower[j] == alphabet[i]) {
+						if (plainText[j] == alphabet[i]) {
 							break;
 						}
 					}
 					if (i >= alphabet.length) {
-						rotated += lower[j];
+						rotated += plainText[j];
 					} else {
 						rotated += alphabet[i + 13];
 					}
@@ -84,20 +83,19 @@
 				document.getElementById("encrypted").innerHTML = rotated;
 			}
 			function RevRot13() {
-				var alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+				var alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
 				var plainText = document.getElementById("plain").value;
 
-				var lower = plainText.toLowerCase();
 				var rotated = "";
 
-				for (var j = 0; j < lower.length; j++) {
+				for (var j = 0; j < plainText.length; j++) {
 					for (var i = alphabet.length - 1; i >= 0; i--) {
-						if (lower[j] == alphabet[i]) {
+						if (plainText[j] == alphabet[i]) {
 							break;
 						}
 					}
 					if (i < 0) {
-						rotated += lower[j];
+						rotated += plainText[j];
 					} else {
 						rotated += alphabet[i - 13];
 					}
