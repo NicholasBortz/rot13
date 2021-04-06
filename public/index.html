@@ -63,8 +63,9 @@
 			}
 
 			function Rot13() {
-				var alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
+				var alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
 				var plainText = document.getElementById("plain").value;
+				plainText = plainText.toLowerCase();
 
 				var rotated = "";
 
@@ -82,26 +83,26 @@
 				}
 				document.getElementById("encrypted").innerHTML = rotated;
 			}
-			function RevRot13() {
-				var alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
-				var plainText = document.getElementById("plain").value;
+			// function RevRot13() {
+			// 	var alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
+			// 	var plainText = document.getElementById("plain").value;
 
-				var rotated = "";
+			// 	var rotated = "";
 
-				for (var j = 0; j < plainText.length; j++) {
-					for (var i = alphabet.length - 1; i >= 0; i--) {
-						if (plainText[j] == alphabet[i]) {
-							break;
-						}
-					}
-					if (i < 0) {
-						rotated += plainText[j];
-					} else {
-						rotated += alphabet[i - 13];
-					}
-				}
-				document.getElementById("encrypted").innerHTML = rotated;
-			}
+			// 	for (var j = 0; j < plainText.length; j++) {
+			// 		for (var i = alphabet.length - 1; i >= 0; i--) {
+			// 			if (plainText[j] == alphabet[i]) {
+			// 				break;
+			// 			}
+			// 		}
+			// 		if (i < 0) {
+			// 			rotated += plainText[j];
+			// 		} else {
+			// 			rotated += alphabet[i - 13];
+			// 		}
+			// 	}
+			// 	document.getElementById("encrypted").innerHTML = rotated;
+			// }
 		</script>
 		<h1>Test Memer, Best Memer!</h1>
 
@@ -115,7 +116,6 @@
 				<input id="plain" type="text">
 				<br />
 				<button onclick="Rot13()">Encrypt</button>
-				<button onclick="RevRot13()">Decrypt</button>
 			</div>
 
 			<div id="encrypted" class="main-text"></div>
